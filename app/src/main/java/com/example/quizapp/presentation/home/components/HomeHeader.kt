@@ -56,7 +56,7 @@ fun HomeHeader() {
             )
 
             Text(
-                text = stringResource(R.string.quiz_app),
+                text = stringResource(R.string.quizApp),
                 fontSize = 32.sp,
                 color = Color.White,
                 fontWeight = FontWeight.Bold

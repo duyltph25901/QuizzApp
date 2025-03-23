@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">QuizApp</string>
 
-    <string name="quiz_app">Quiz App</string>
+    <string name="quizApp">Quiz App</string>
+
+    <string name="menuName1">Number of Questions:</string>
+    <string name="menuName2">Select Category:</string>
+    <string name="menuName3">Select Difficultly:</string>
+    <string name="menuName4">Select Type:</string>
+
+    <string name="itemCategories1">General Knowledge</string>
+
+    <string name="itemDifficultly1">Easy</string>
+    <string name="itemDifficultly2">Normal</string>
+    <string name="itemDifficultly3">Hard</string>
+
+    <string name="itemType1">Multiple Choice</string>
+    <string name="itemType2">Single Choice</string>
+
+    <string name="btn_gen_quiz">Generate Quiz</string>
+
 </resources>

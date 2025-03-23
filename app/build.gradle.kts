@@ -62,6 +62,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.hilt.android)
+    implementation(libs.hilt.compose)
     ksp(libs.hilt.android.compiler)
     ksp(libs.hilt.compiler)
 
