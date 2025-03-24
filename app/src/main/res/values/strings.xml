@@ -19,4 +19,6 @@
 
     <string name="btn_gen_quiz">Generate Quiz</string>
 
+    <string name="question">Question</string>
+
 </resources>

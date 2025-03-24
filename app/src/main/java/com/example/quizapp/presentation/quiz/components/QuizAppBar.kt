@@ -14,6 +14,8 @@ import androidx.compose.material.icons.filled.KeyboardArrowLeft
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,7 +44,7 @@ fun QuizAppBar(
         Row(
             modifier = Modifier.fillMaxWidth()
                 .padding(
-                    vertical = 4.dp
+                    vertical = 12.dp
                 ),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.Start
@@ -72,12 +74,50 @@ fun QuizAppBar(
                 text = category,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = colorResource(R.color.blue_grey),
+                color = Color.White,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
         }
     }
+
+    /*TopAppBar(
+        modifier = Modifier.fillMaxWidth(),
+
+        colors = TopAppBarDefaults.mediumTopAppBarColors(
+            containerColor = colorResource(R.color.dark_slate_blue),
+            actionIconContentColor = colorResource(R.color.blue_grey),
+            navigationIconContentColor = colorResource(R.color.blue_grey)
+        ),
+
+        title = {
+            Text(
+                text = category,
+                color = colorResource(R.color.blue_grey),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                fontSize = 16.sp,
+                fontWeight = FontWeight.SemiBold
+            )
+        },
+
+        navigationIcon = {
+            IconButton(
+                onClick = {
+                    onEventIconBack.invoke()
+                }
+            ) {
+                Icon(
+                    modifier = Modifier.size(
+                        size = 24.dp
+                    ),
+                    imageVector = Icons.Default.KeyboardArrowLeft,
+                    contentDescription = null,
+                    tint = Color.White
+                )
+            }
+        }
+    )*/
 
 }
 

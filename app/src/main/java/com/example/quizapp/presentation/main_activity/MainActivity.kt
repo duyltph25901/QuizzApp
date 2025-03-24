@@ -12,13 +12,16 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.quizapp.R
 import com.example.quizapp.presentation.home.HomeScreen
 import com.example.quizapp.presentation.home.controller.EventHomeScreen
 import com.example.quizapp.presentation.home.controller.HomeViewModel
 import com.example.quizapp.presentation.home.controller.StateHomeScreen
+import com.example.quizapp.presentation.nav_graph.SetNavGraph
 import com.example.quizapp.ui.theme.QuizAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
@@ -31,29 +34,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             QuizAppTheme {
-                val vm: HomeViewModel = hiltViewModel()
-                val state by vm.homeState.collectAsState(
-                    initial = StateHomeScreen(
-                        numberOfQuiz = 10,
-                        category = getString(R.string.itemCategories1),
-                        difficulty = getString(R.string.itemDifficultly1),
-                        type = getString(R.string.itemType1)
-                    ),
-                    context = Dispatchers.Main
-                )
-                MainScreen(
-                    stateHomeScreen = state,
-                    event = vm::onEvent
-                )
+                SetNavGraph()
             }
         }
     }
 }
 
 @Composable
-private fun MainScreen(
+fun MainScreen(
     stateHomeScreen: StateHomeScreen,
-    event: (EventHomeScreen) -> Unit
+    event: (EventHomeScreen) -> Unit,
+    navController: NavController
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -61,7 +52,8 @@ private fun MainScreen(
     ) {
         HomeScreen(
             stateHomeScreen = stateHomeScreen,
-            event = event
+            event = event,
+            navController
         )
     }
 }
@@ -72,7 +64,10 @@ fun PreviewMainScreen() {
     QuizAppTheme {
         MainScreen(
             stateHomeScreen = StateHomeScreen(),
-            event = {}
+            event = {},
+            navController = NavController(
+                LocalContext.current
+            )
         )
     }
 }
